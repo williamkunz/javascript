@@ -6,7 +6,7 @@
 **Other Style Guides**
 
 - [React](react/)
-- [CSS-in-JavaScript](react-styling/)
+- [React Styling](react-styling/)
 
 ## Table of Contents
 
@@ -779,7 +779,7 @@ const item = {};
 	const f = function(){};
 	const g = function (){};
 	const h = function() {};
-	
+
 	// good
 	const x = function () {};
 	const y = function a() {};
@@ -795,7 +795,7 @@ const item = {};
 	function f1(obj) {
 	  obj.key = 1;
 	}
-	
+
 	// good
 	function f2(obj) {
 	  const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1;
@@ -1091,7 +1091,7 @@ class Jedi {
 	  this.jumping = true;
 	  return this;
 	}
-	
+
 	setHeight(height) {
 	  this.height = height;
 	  return this;
@@ -1113,11 +1113,11 @@ class Jedi {
     constructor(options = {}) {
       this.name = options.name || 'no name';
     }
-    
+
     getName() {
       return this.name;
     }
-    
+
     toString() {
       return `Jedi - ${this.getName()}`;
     }
@@ -1131,7 +1131,7 @@ class Jedi {
 // bad
 class Jedi {
     constructor() {}
-    
+
     getName() {
       return this.name;
     }
@@ -2942,7 +2942,7 @@ class Dragon {
     get age() {
       // ...
     }
-    
+
     set age(value) {
       // ...
     }
@@ -2953,7 +2953,7 @@ class Dragon {
     getAge() {
       // ...
     }
-    
+
     setAge(value) {
       // ...
     }
@@ -2984,11 +2984,11 @@ class Jedi {
         const lightsaber = options.lightsaber || 'blue';
         this.set('lightsaber', lightsaber);
     }
-    
+
     set(key, val) {
         this[key] = val;
     }
-    
+
     get(key) {
         return this[key];
     }
@@ -3071,4 +3071,3 @@ class Jedi {
 
 
 **[⬆ back to top](#table-of-contents)**
-

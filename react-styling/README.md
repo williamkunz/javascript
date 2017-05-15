@@ -14,68 +14,68 @@
 
 ## Example
 
-  - Typical `Heading` Component example
-  
-  ```jsx
-  import React, { Component } from 'react'
-  import PropTypes from 'prop-types'
-  
-  // style vars
-  import { fontBlack, headingBackgroundColor } from 'styles/colors'
-  
-  class Heading extends Component {
-  	  constructor(props) {
-  	  	super(props)
-  	  	this.displayName = 'Heading'
-  	  }
-  	  
-  	  render() {
-  	  	const { subText, title } = this.props
-  	  	
-  	  	return (
-  	  		<header className="heading" role="heading">
-  	  			<h1>{title}</h1>
-  	  			<p>{subText}</p>
-  	  			
-  	  			<style jsx>{`
-  	  				.heading {
-  	  					background-color: ${ headingColor };
-  	  					margin: 1rem auto;
-  	  					max-width: 40rem;
-  	  				}
-  	  				
-  	  				h1 {
-  	  					color: ${ fontBlack };
-  	  					font-size: 2rem;
-  	  					font-weight: 500;
-  	  				}
-  	  				
-  	  				p {
-  	  					font-size: 1.4rem;
-  	  					text-align: center;
-  	  				}
-  	  				
-  	  				@media only screen and (min-width: 70rem) {
-  	  					.heading {
-	  	  					margin-bottom: 2rem;
-	  	  					margin-top: 2rem;
-	  	  					max-width: 70rem;
-	  	  				}
-  	  				}
-  	  			`}</style>
-  	  		</header>
-  	  	)
-  	  }
-  }
-  
-	Heading.propTypes = {
-		subText: PropTypes.string.isRequired,
-		title: PropTypes.string.isRequired,
-	}
-  
-  export default Heading
-  
-  ```
+- Typical `Heading` Component example
+
+```jsx
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
+// style vars
+import { fontBlack, headingBackgroundColor } from 'styles/colors'
+
+class Heading extends Component {
+    constructor(props) {
+      super(props)
+      this.displayName = 'Heading'
+    }
+
+    render() {
+      const { subText, title } = this.props
+
+      return (
+        <header className="heading" role="heading">
+          <h1>{title}</h1>
+          <p>{subText}</p>
+
+          <style jsx>{`
+            .heading {
+              background-color: ${ headingColor };
+              margin: 1rem auto;
+              max-width: 40rem;
+            }
+
+            h1 {
+              color: ${ fontBlack };
+              font-size: 2rem;
+              font-weight: 500;
+            }
+
+            p {
+              font-size: 1.4rem;
+              text-align: center;
+            }
+
+            @media only screen and (min-width: 70rem) {
+              .heading {
+                margin-bottom: 2rem;
+                margin-top: 2rem;
+                max-width: 70rem;
+              }
+            }
+          `}</style>
+        </header>
+      )
+    }
+}
+
+Heading.propTypes = {
+  subText: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+}
+
+export default Heading
+
+```
 
 
 ## Ordering
@@ -91,16 +91,16 @@
         <div className="my-component">
           <p>Never doubt that a small group of thoughtful, committed citizens can
           change the world. Indeed, it’s the only thing that ever has.</p>
-          
+
           <figure>
-          	<img src="/myimg.png" alt="my img" />
-          	
-          	<style jsx>{`
-          		// not immediate parent, unreachable
-          		.my-component {
-          			color: #000;
-          		}
-          	`}</style>
+            <img src="/myimg.png" alt="my img" />
+
+            <style jsx>{`
+              // not immediate parent, unreachable
+              .my-component {
+                color: #000;
+              }
+            `}</style>
           </figure>
         </div>
       )
@@ -115,86 +115,86 @@
         <div className="my-component">
           <p>Never doubt that a small group of thoughtful, committed citizens can
           change the world. Indeed, it’s the only thing that ever has.</p>
-          
+
           <figure>
-          	<img src="/myimg.png" alt="my img" />
+            <img src="/myimg.png" alt="my img" />
           </figure>
-          
+
           <style jsx>{`
-	      		// immediate parent
-	      		.my-component {
-	      			color: #000;
-	      		}
-	      	`}</style>
+            // immediate parent
+            .my-component {
+              color: #000;
+            }
+          `}</style>
         </div>
       )
     }
 
     export default MyComponent
     ```
-    
+
   - Within each style selector, order properties in alphabetical order
-	
-	> Why? Improves readability
-	
-	```jsx
-	// bad
-	const MyComponent = () => {
+
+  > Why? Improves readability
+
+  ```jsx
+  // bad
+  const MyComponent = () => {
       return (
         <div className="my-component">
           <p>Never doubt that a small group of thoughtful, committed citizens can
           change the world. Indeed, it’s the only thing that ever has.</p>
-          
+
           <style jsx>{`
-	      		.my-component {
-	      			color: #000;
-	      			font-size: 1.5rem;
-	      			left: 0;
-	      			position: absolute;
-	      			text-align: center;
-	      			top: 0;
-	      			z-index: 2;
-	      		}
-	      	`}</style>
+            .my-component {
+              color: #000;
+              font-size: 1.5rem;
+              left: 0;
+              position: absolute;
+              text-align: center;
+              top: 0;
+              z-index: 2;
+            }
+          `}</style>
         </div>
       )
     }
 
     export default MyComponent
-    
+
     // good
     const MyComponent = () => {
       return (
         <div className="my-component">
           <p>Never doubt that a small group of thoughtful, committed citizens can
           change the world. Indeed, it’s the only thing that ever has.</p>
-          
+
           <style jsx>{`
-	      		.my-component {
-	      			color: #000;
-	      			font-size: 1.5rem;
-	      			left: 0;
-	      			position: absolute;
-	      			text-align: center;
-	      			top: 0;
-	      			z-index: 2;
-	      		}
-	      	`}</style>
+            .my-component {
+              color: #000;
+              font-size: 1.5rem;
+              left: 0;
+              position: absolute;
+              text-align: center;
+              top: 0;
+              z-index: 2;
+            }
+          `}</style>
         </div>
       )
     }
 
     export default MyComponent
-	```
-  
+  ```
+
 ## Theming
 
-- `styled-jsx` only supports static variables imports 
-	 
+- `styled-jsx` only supports static variables imports
+
 > Why? As to not rely on runtime rending with styles. Render styles once, not every re-render
 
 ```jsx
-	// bad
+  // bad
     const MyComponent = ({ isDark }) => {
       return (
         <div className="my-component">
@@ -202,14 +202,14 @@
           change the world. Indeed, it’s the only thing that ever has.</p>
 
           <style jsx>{`
-	      		.my-component {
-	      			color: ${ isDark ? '#000' : '#fff' };
-	      		}
-	      	`}</style>
+            .my-component {
+              color: ${ isDark ? '#000' : '#fff' };
+            }
+          `}</style>
         </div>
       )
     }
-    
+
     // good
     const MyComponent = ({ isDark }) => {
       return (
@@ -218,14 +218,14 @@
           change the world. Indeed, it’s the only thing that ever has.</p>
 
           <style jsx>{`
-	      		.my-component {
-	      			color: #fff;
-	      		}
-	      		
-	      		.my-component.dark {
-	      			color: #000;
-	      		}
-	      	`}</style>
+            .my-component {
+              color: #fff;
+            }
+
+            .my-component.dark {
+              color: #000;
+            }
+          `}</style>
         </div>
       )
     }
@@ -248,10 +248,10 @@ const MyComponent = () => {
       change the world. Indeed, it’s the only thing that ever has.</p>
 
       <style jsx>{`
-      		.my-component {
-      			color: ${ black };
-      		}
-      	`}</style>
+          .my-component {
+            color: ${ black };
+          }
+        `}</style>
     </div>
   )
 }
@@ -266,10 +266,10 @@ const MyComponent = () => {
       change the world. Indeed, it’s the only thing that ever has.</p>
 
       <style jsx>{`
-      		.my-component {
-      			color: ${ fontColorBlack };
-      		}
-      	`}</style>
+          .my-component {
+            color: ${ fontColorBlack };
+          }
+        `}</style>
     </div>
   )
 }
@@ -284,14 +284,14 @@ const MyComponent = () => {
 
 // file styles -> colors.js
 export default {
-	fontColorBlack: '#000',
-	fontColorWhite: '#fff',
+  fontColorBlack: '#000',
+  fontColorWhite: '#fff',
 }
 
 // file styles -> spacing.js
 export default {
-	gutterSmall: '1.6rem',
-	gutterLarge: '3.2rem',
+  gutterSmall: '1.6rem',
+  gutterLarge: '3.2rem',
 }
 
 
@@ -305,5 +305,3 @@ export const fontColorWhite = '#fff'
 export const gutterSmall = '1.6rem'
 export const gutterLarge = '3.2rem'
 ```
-
-
